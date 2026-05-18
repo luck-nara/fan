@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-thai: 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --color-romance-dark: #0d0509;
+  --color-romance-deep: #1a0a14;
+  --color-romance-pink: #ff4d8d;
+  --color-romance-rose: #ff6b9d;
+  --color-romance-glow: #ff8fab;
+  --color-romance-red: #e91e63;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-thai);
+  background: var(--color-romance-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-glow {
+  text-shadow:
+    0 0 20px rgba(255, 77, 141, 0.8),
+    0 0 40px rgba(255, 107, 157, 0.5),
+    0 0 60px rgba(255, 143, 171, 0.3);
+}
+
+.text-glow-soft {
+  text-shadow:
+    0 0 12px rgba(255, 107, 157, 0.6),
+    0 0 24px rgba(255, 77, 141, 0.3);
+}
+
+.btn-romantic {
+  background: linear-gradient(135deg, #ff4d8d 0%, #e91e63 50%, #c2185b 100%);
+  box-shadow:
+    0 4px 24px rgba(255, 77, 141, 0.5),
+    0 0 40px rgba(233, 30, 99, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-romantic:hover {
+  box-shadow:
+    0 6px 32px rgba(255, 77, 141, 0.7),
+    0 0 60px rgba(233, 30, 99, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.heart-glow {
+  filter: drop-shadow(0 0 12px rgba(255, 77, 141, 0.9))
+    drop-shadow(0 0 24px rgba(255, 107, 157, 0.6));
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+.cursor-heart {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+}
